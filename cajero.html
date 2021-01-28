@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang= "es">
+
+  <meta charset= "utf-8"/>
+  <title>Cajero</title>
+
+<style>    
+
+h2{ 
+    
+  color: white;
+  display: block;
+  background-color: blue;
+  width: 320px;
+    
+}
+    
+div{
+
+  position: relative;
+  width: 500px;   
+  height: 500px;
+  border: 1px solid blue;
+  padding: 4px; 
+    
+}
+    
+#entregados img{
+    
+  position: absolute;
+  margin: 10px;  
+
+}
+    
+</style>   
+    
+</head>
+
+<body>
+        
+<p><img src= "img/cajero.png"></p>
+<h2 id= "disponible"></h2>   
+    
+<input type="number" id= "cifra" min= "0" width= "300">&nbsp;&nbsp;&nbsp;&nbsp;
+<input type= "button" value= "click" id="boton"> 
+<p id= "contador"><p>    
+<div id="entregados"></div>        
+<p><p>    
+    
+<script src= "cajero.js"></script>
+
+</body>
+
+</html>
