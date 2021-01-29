@@ -21,8 +21,8 @@ class billete {
     entregados.innerHTML+= "<img src='" + "img/" + billetes[this.valor] + "'><br>"; 
     /* billetes[this.valor] devuelve el source, justo lo 
     que necesito para poder completar la estructura de
-    insertar una imagen: <img src= "cajero.png"> 
-    ... en este caso "cajero. png" es el source! */
+    insertar una imagen: <img src= "img/cajero.png"> 
+    ... en este caso "img/cajero.png" es el source! */
     
   }/*  Termina mostrar! */
              
