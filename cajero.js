@@ -61,13 +61,19 @@ var transaccion= document.getElementById("contador");
 var contador= 0;/* Guarda cuantas veces se ejecuta el Click, 
 es decir la veces que pedimos dinero. Obvio empieza en cero! */
 
-function dameDinero(){    
+function dameDinero(){   
+  
+var entregadoFake= 0;
  
 var available= document.getElementById("disponible"); 
 /* Se vuelve a hacer la misma operacion para guardar la 
 cantidad de dinero disponible!  */    
     
 var papeles; 
+
+var entregado=[];
+
+var devolver= [];
  
 contador++; /* El contador empieza a incrementar por
  cada transaccion! */   
@@ -79,8 +85,6 @@ los billetes se resetea y coloca la nueva solicitud! */
 var cifra= document.getElementById("cifra"); /* Cuanto pido! */  
        
 cifra = parseInt(cifra.value);          
-    
-var entregado = []; 
  
 if(cifra>disponibleCaja){
 
@@ -88,8 +92,9 @@ if(cifra>disponibleCaja){
 
 }else if(cifra<=disponibleCaja){
 
-  var nuevoMonto= 0;/* El mismo procedimiento, la variable que 
-  guarda la sumatoria de lo disponible en caja debe empezar en cero! */    
+  var nuevoMonto= 0;/* El mismo procedimiento, la variable 
+  que guarda la sumatoria de lo disponible en caja debe 
+  empezar en cero! */ 
 
   for(var bi of caja){       
         
@@ -104,34 +109,45 @@ if(cifra>disponibleCaja){
           }//cierra if div>bi.cantidad!
         
           else if(div <= bi.cantidad){
-               
+             
             papeles= div; 
-           
+          
           } //else if!  
-                  
-          entregado.push(new billete(bi.valor, papeles));    
-      
+           
+          entregado.push(new billete(bi.valor, papeles));
+
+          devolver.push(new billete(bi.valor, bi.cantidad));/* 
+          En el caso de que al final la cifra > 0 se debe garantizar 
+          que la caja quede intacta ya que papeles siempre se descuenta */
+          
           cifra= cifra - papeles*bi.valor;
           /* A cifra se le va restando lo extraído por 
-          cada billete puesto en evaluación!  */   
-      
+          cada billete puesto en evaluación! */ 
+
           bi.cantidad= bi.cantidad - papeles;
-          /* La nueva cantidad de billetes en caja! */                   
-            
-    }// Cierra el if cifra > 0 
+          /* La nueva cantidad de billetes en caja! */
+
     
-    nuevoMonto+= bi.cantidad*bi.valor; 
-    /* Se calcula lo que queda en caja una vez se haga la transaccion! */            
-     
+    }// Cierra el if cifra > 0 
+
+      nuevoMonto+= bi.cantidad*bi.valor; 
+      /* Se calcula lo que queda en caja una vez se haga 
+      la transaccion! */ 
+         
   } //cierra el for (var bi of caja)! 
 
-  if(cifra>0){   
-   
+  if(cifra>0){
+
+    caja= devolver; /* En el caso de que la transacción sea fallida
+    el dinero descontado debe ser devuelto */
+
+    console.log(devolver);
+  
   entregados.innerHTML= "<strong>No puedo darte esa cantidad</strong>";    
      
   }// Cierra el cifra > 0!
 
-  else{
+  else if(cifra==0){
 
     disponibleCaja= nuevoMonto;
  
