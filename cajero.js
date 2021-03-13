@@ -140,10 +140,10 @@ if(cifra>disponibleCaja){
 
     caja= devolver; /* En el caso de que la transacción sea fallida
     el dinero descontado debe ser devuelto */
-
+  
     console.log(devolver);
   
-  entregados.innerHTML= "<strong>No existe tipo de billetes para darte esa cantidad</strong>";    
+  entregados.innerHTML= "<strong>No existe ese tipo de billetes para darte esa cantidad</strong>";    
      
   }// Cierra el cifra > 0!
 
