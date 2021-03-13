@@ -88,6 +88,7 @@ cifra = parseInt(cifra.value);
  
 if(cifra>disponibleCaja){
 
+  transaccion.innerHTML+="Transacción # " + contador + "= <strong>" + "Fallida" + "<strong><br>";
   entregados.innerHTML= "<strong>No hay dinero suficiente en el cajero</strong>";
 
 }else if(cifra<=disponibleCaja){
@@ -143,6 +144,7 @@ if(cifra>disponibleCaja){
   
     console.log(devolver);
   
+  transaccion.innerHTML+="Transacción # " + contador  + "= <strong>" + "Fallida" + "<strong><br>";
   entregados.innerHTML= "<strong>No existe ese tipo de billetes para darte esa cantidad</strong>";    
      
   }// Cierra el cifra > 0!
@@ -155,7 +157,7 @@ if(cifra>disponibleCaja){
         
       if(e.cantidad > 0){
              
-        transaccion.innerHTML+="Transacción # " + contador  + "= <strong>" + e.cantidad + "</strong>" + " billetes de $     <strong>" + e.valor + "</strong><br>";                
+        transaccion.innerHTML+="Transacción # " + contador  + "= <strong>" + e.cantidad + "</strong>" + " billetes de $ <strong>" + e.valor + "</strong><br>";                
   
       }// Cierra el if e.cantidad > 0!
          
