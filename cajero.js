@@ -101,11 +101,11 @@ if(cifra>disponibleCaja){
     if(cifra > 0){
                
           div= Math.floor(cifra/bi.valor);
-      
+          
           if(div > bi.cantidad){
-         
+          
             papeles =  bi.cantidad; 
-                 
+                
           }//cierra if div>bi.cantidad!
         
           else if(div <= bi.cantidad){
@@ -143,7 +143,7 @@ if(cifra>disponibleCaja){
 
     console.log(devolver);
   
-  entregados.innerHTML= "<strong>No puedo darte esa cantidad</strong>";    
+  entregados.innerHTML= "<strong>No existe tipo de billetes para darte esa cantidad</strong>";    
      
   }// Cierra el cifra > 0!
 
